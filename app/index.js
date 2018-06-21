@@ -1,3 +1,13 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Global from './components/Global';
+
+ReactDOM.render(
+    <Global />, document.getElementById('root')
+);
+
+
+
 /*
 console.log('hello webpack');
 console.log("hello in the browser");
@@ -75,10 +85,3 @@ console.log(someClass("Jose", "Antonio"));
 //     yield 'b';
 //     yield 'c';
 // }
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-ReactDOM.render(
-    <div>React Application!</div>, document.getElementByID('root')
-);
