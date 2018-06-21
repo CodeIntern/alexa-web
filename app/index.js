@@ -53,21 +53,32 @@ console.log(someClass("Jose", "Antonio"));
 // console.log(aIncrement());
 // console.log(aShow());
 
-function* countIncrementer() {
-    let counter = 0;
-    while(true) {
-        yield counter++;
-    }
-    // let counter = 0;
-    // counter++;
-    // yield counter;
-}
+// function* countIncrementer() {
+//     let counter = 0;
+//     while(true) {
+//         yield counter++;
+//     }
+// }
 //
 // let countIncrement = countIncrementer();
 // console.log(countIncrement.next().value);
+// console.log(countIncrement.next().value);
+// console.log(countIncrement.next().value);
+// console.log(countIncrement.next().value);
+// console.log(countIncrement.next().value);
+
+// let a = 2**5;
+// console.log(a);
 
 // function* letterMaker() {
 //     yield 'a';
 //     yield 'b';
 //     yield 'c';
 // }
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+ReactDOM.render(
+    <div>React Application!</div>, document.getElementByID('root')
+);
