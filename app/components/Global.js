@@ -55,8 +55,10 @@ class Global extends Component {
     render() {
         return (
             <div className="Global">
-                <h2>Shopping Cart</h2>
                 <FormGroup>
+                  <div className="header-area">
+                    <h2>SHOPPING CART</h2>
+                    <img src="http://www.clker.com/cliparts/l/z/3/L/h/3/white-shopping-cart-md.png" className="funnyImage"/>
                     <InputGroup>
                         <FormControl
                             type="text"
@@ -80,7 +82,9 @@ class Global extends Component {
                                 glyph="search"
                             ></Glyphicon>
                         </InputGroup.Addon>
-                    </InputGroup>
+                    </InputGroup>                    
+                  </div>
+                  <div className="funnyDiv"></div>
                 </FormGroup>
                 <Gallery
                     items={this.state.items}
