@@ -2,28 +2,30 @@ import React, {Component} from 'react';
 
 class Gallery extends Component {
     render() {
-        let alternate = "https://upload.wikimedia.org/wikipedia/commons/b/b1/Missing-image-232x150.png";
+        // console.log("hello", this.props.items)
 
         return(
             <div>{
                 this.props.items.map((item, index) => {
-                    let {title, imageLinks, infoLink} = item.volumeInfo;
+                    let imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/b/b1/Missing-image-232x150.png';
+
+                    if (item.info === 'iphone') {
+                      imageUrl = 'https://ss7.vzw.com/is/image/VerizonWireless/iphone7-front-matblk?$device-lg$';
+                    } else if (item.info === 'kindle') {
+                      imageUrl = 'http://www.stickpng.com/assets/images/58f36d56a4fa116215a923f6.png';
+                    } else if (item.info === 'ipad') {
+                      imageUrl='https://ss7.vzw.com/is/image/VerizonWireless/apple_ipad_pro_10_5_spgry?$device-lg$';
+                    }
+
                     return(
-                        <a
-                            key={index}
-                            className="book"
-                            href={infoLink}
-                            target="_blank"
-                        >
-                            <img
-                                src={imageLinks !== undefined ? imageLinks.thumbnail : alternate}
-                                alt="book image"
-                                className="book-img"
-                            />
-                            <div className="book-text">
-                                {title}
-                            </div>
-                        </a>
+                      <div className="imageBox" key={index}>
+                        <div className="imgContainer">
+                          <img src={imageUrl} />
+                        </div>
+                        {/* <div className="spanContainer">
+                          <span>{item.info}</span>                        
+                        </div> */}
+                      </div>
                     );
                 })
             }</div>

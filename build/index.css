@@ -3,6 +3,36 @@
     padding: 10px;
 }
 
+.Global h2 {
+    font-weight: 600;
+}
+
+.imageBox {
+  margin: 10px;
+  width: 150px;
+  height: 190px;
+  display: inline-flex;
+  border: 2px solid gray;
+  flex-wrap: wrap;
+  /* width: 70px;
+  height: 70px; */
+}
+
+.imageBox .imgContainer img {
+  width: 150px;
+  height: 190px;
+}
+
+.imageBox .imgContainer {
+  width: 150px;
+  height: 190px;
+  display: block;
+}
+
+.imageBox .spanContainer {
+  display: block;
+}
+
 .book {
     display: inline-block;
     width: 220px;

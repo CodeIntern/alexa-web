@@ -11,10 +11,27 @@ class Global extends Component {
         }
     }
 
-    search() {
-        const BASE_URL = 'https://www.googleapis.com/books/v1/volumes?q=';
+    componentDidMount() {
+      this.timerId = setInterval(
+        () => {this.search()},
+        1000
+      );
 
-        fetch(`${BASE_URL}${this.state.query}`, {
+      this.isSearching = false;
+    }
+
+    componentWillUnmount() {
+      clearInterval(this.timerId);
+    }
+
+    search() {
+        if(this.isSearching) return;
+
+        this.isSearching = true;
+
+        const BASE_URL = 'https://3cpu4y85vj.execute-api.us-east-1.amazonaws.com/phase1/cart';
+
+        fetch(`${BASE_URL}`, {
             method: 'GET'
         }).then(response => {
             if(response.ok) {
@@ -25,22 +42,25 @@ class Global extends Component {
                 return undefined;
             }
         }).then(json => {
+            // console.log(json);
             if(json !== undefined){
-                let { items } = json;
+                let items = json;
                 this.setState({items});
             }
+
+            this.isSearching = false;
         });
     }
 
     render() {
         return (
             <div className="Global">
-                <h2>Book Explorer!</h2>
+                <h2>Shopping Cart</h2>
                 <FormGroup>
                     <InputGroup>
                         <FormControl
                             type="text"
-                            placeholder="Search for a book"
+                            placeholder="Search for an item"
                             onChange={event =>
                                 this.setState({query: event.target.value})
                             }
